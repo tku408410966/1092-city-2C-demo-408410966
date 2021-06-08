@@ -94,4 +94,21 @@ router.post('/update', async function (req, res, next) {
     }
   });
 
+// delete book
+router.get('/delete/:id', async function (req, res, next) {
+    let id = req.params.id;
+  
+    try {
+        const response = await fetch(`http://localhost:1337/cities/${id}`, {
+          method: 'delete',
+      });
+        const data = await response.json();
+        res.redirect('/apiCity');
+      //await db.query('DELETE FROM city WHERE id = ?', [id]);
+    } catch (err) {
+      console.log(err);
+    }
+    res.redirect('/city');
+  });
+
 module.exports = router;

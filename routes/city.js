@@ -78,7 +78,7 @@ router.post('/update', async function (req, res, next) {
 });
 
 // delete book
-router.delete('/delete/:id', async function (req, res, next) {
+router.get('/delete/:id', async function (req, res, next) {
   let id = req.params.id;
 
   try {
