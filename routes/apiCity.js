@@ -17,7 +17,7 @@ router.get('/', async function (req, res, next) {
   // display add city page
 router.get('/add', async function (req, res, next) {
     //  res.send('display add city page')
-      res.render('city/add', {
+      res.render('apiCity/add', {
         name: '',
       });
     });
@@ -59,8 +59,8 @@ router.get('/edit/:id', async function (req, res, next) {
       const data = await response.json();
       //const[row] = await db.query('SELECT * FROM city WHERE id = ?', [id]);
       res.render('apiCity/edit', {
-        id: row[0].id,
-        name: row[0].name,
+        id: data.id,
+        name: data.name,
       });
     }catch (err) {
       console.log(err);
