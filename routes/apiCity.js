@@ -33,8 +33,6 @@ router.post('/add', async function (req, res, next) {
       };
     
       try{
-        //await db.query('INSERT INTO city SET ?', from_data);
-
         const response = await fetch('http://localhost:1337/cities', {
             method: 'post',
             body: JSON.stringify(from_data),
@@ -72,14 +70,25 @@ router.post('/update', async function (req, res, next) {
     //res.send('update city data');
     const name = req.body.name;
     const id = req.body.id;
+
+    const from_data = {
+        name: name,
+      };
   
     try {
+      const response = await fetch(`http://localhost:1337/cities/${id}`, {
+          method: 'put',
+          body: JSON.stringify(from_data),
+          headers: { 'Content-Type': 'application/json' },
+      });
+        const data = await response.json();
+        res.redirect('/apiCity');
       //await db.query('UPDATE city SET name = ? WHERE id = ?', [
       //  name,
       //  id,
       // ]);
       //res.status(200).json({ message: 'Updating successful' });
-      res.redirect('/city');
+      res.redirect('/apiCity');
     }catch (err) {
       console.log(err);
     }
