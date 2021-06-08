@@ -21,7 +21,7 @@
               <a class="nav-link">city</a>
             </li>
             <li class="nav-pill ml-auto">
-              <a class="nav-link active" href="/city/add">Add city</a>
+              <a class="nav-link active" href="/apiCity/add">Add city</a>
             </li>
           </ul>
         </div>
@@ -43,13 +43,13 @@
                 <td>
                   <a
                     class="btn btn-success edit"
-                    href="/city/edit/<%= data[i].id %>"
+                    href="/apiCity/edit/<%= data[i].id %>"
                     >Edit</a
                   >
                   <a
                     class="btn btn-danger delete"
                     onclick="return alert('Are You sure?')"
-                    href="/city/delete/<%= data[i].id %>"
+                    href="/apiCity/delete/<%= data[i].id %>"
                     >Delete</a
                   >
                 </td>
